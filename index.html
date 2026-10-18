@@ -23,6 +23,7 @@ h1 .nw{white-space:nowrap;font-style:italic}
 .meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}
 .meta b{color:var(--ink);font-weight:600}
 .drawer{max-width:1040px;width:100%;margin:26px auto 0;padding:0 22px}
+.drawer+.tools{border-top:0}
 .drawer .front{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--paper2);border:1.5px solid var(--line);border-bottom:0;padding:10px 16px;font-size:12px;color:var(--brown);letter-spacing:.18em}
 .drawer .front i{display:block;width:60px;height:8px;border-radius:6px;background:linear-gradient(180deg,#c9b38f,#a48863);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
 
@@ -30,12 +31,12 @@ main{flex:1;max-width:1040px;width:100%;margin:0 auto;padding:0 22px 70px}
 .shelf{border:1.5px solid var(--line);background:linear-gradient(180deg,#f1e7d4,#f6efe2 60px);padding:34px 22px 30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:40px 26px}
 
 .folder{position:relative;display:block;text-decoration:none;color:inherit;padding-top:26px;transition:transform .2s}
-a.folder:hover{transform:translateY(-6px)}
+.folder.live:hover{transform:translateY(-6px)}
 .folder .tab{position:absolute;top:0;left:0;height:28px;padding:6px 14px 0;background:var(--c,#e8d7b4);border:1.5px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;font-size:11px;letter-spacing:.12em;color:var(--t,var(--ink));max-width:80%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .folder .body{background:var(--card);border:1.5px solid var(--line);border-radius:0 8px 8px 8px;padding:16px 16px 14px;box-shadow:0 1px 0 #fff inset,0 10px 18px -12px rgba(80,55,25,.45);position:relative}
 .folder .body::before{content:"";position:absolute;inset:6px;border:1px dashed rgba(122,90,58,.18);border-radius:4px;pointer-events:none}
 .photo{position:relative;background:#fff;padding:7px 7px 22px;box-shadow:0 2px 6px rgba(60,40,20,.18);transform:rotate(var(--r,-1.5deg));transition:transform .25s}
-a.folder:hover .photo{transform:rotate(0deg) scale(1.02)}
+.folder.live:hover .photo{transform:rotate(0deg) scale(1.02)}
 .photo img{width:100%;aspect-ratio:2/1;object-fit:cover;filter:sepia(.12) saturate(.95)}
 .photo .cap{position:absolute;left:9px;bottom:4px;font-size:10px;color:var(--mute)}
 .folder h2{font-family:"Playfair Display","Gowun Batang",serif;font-size:24px;line-height:1.15;margin-top:16px}
@@ -43,12 +44,44 @@ a.folder:hover .photo{transform:rotate(0deg) scale(1.02)}
 .folder p{font-size:13px;color:var(--mute);margin-top:6px;line-height:1.5}
 .folder .row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;color:var(--mute)}
 .folder .open{color:var(--ink);font-weight:600;letter-spacing:.1em}
-a.folder:hover .open{color:var(--red)}
-.stamp{position:absolute;right:16px;bottom:104px;border:2.5px solid var(--red);color:var(--red);padding:2px 10px;font-size:14px;letter-spacing:.12em;transform:rotate(-9deg);opacity:.8;mix-blend-mode:multiply;border-radius:3px;background:rgba(251,246,236,.35)}
+.folder.live:hover .open{color:var(--red)}
+.stamp{position:absolute;right:8px;bottom:2px;font-size:12px!important;border:2.5px solid var(--red);color:var(--red);padding:2px 10px;font-size:14px;letter-spacing:.12em;transform:rotate(-9deg);opacity:.8;mix-blend-mode:multiply;border-radius:3px;background:rgba(251,246,236,.35)}
 .folder.sealed .photo{display:grid;place-items:center;aspect-ratio:auto}
 .folder.sealed .photo .blank{width:100%;aspect-ratio:2/1;background:repeating-linear-gradient(45deg,#efe6d4 0 10px,#f7f1e4 10px 20px);display:grid;place-items:center;color:var(--mute);font-size:12px;letter-spacing:.3em}
 .folder.sealed{opacity:.72}
 
+
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-left:1.5px solid var(--line);border-right:1.5px solid var(--line);background:var(--paper2);padding-bottom:12px}
+.tools{padding:12px 16px}
+.tools input{flex:1 1 200px;min-width:0;padding:8px 12px;border:1.5px solid var(--line);background:var(--card);font:inherit;font-size:14px;color:var(--ink);border-radius:4px}
+.tools input:focus{outline:2px solid #c9b38f}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:4px 11px;border:1.5px solid var(--line);background:var(--card);border-radius:14px;font:inherit;font-size:12px;color:var(--brown);cursor:pointer}
+.tag.on{background:var(--brown);border-color:var(--brown);color:#fff}
+.tg{display:flex;gap:6px;margin-left:auto}
+.tg button{padding:5px 10px;border:1.5px solid var(--brown);background:none;color:var(--brown);font-size:11px;cursor:pointer;border-radius:3px}
+.tg button:hover{background:var(--brown);color:#fff}
+.folder.live{cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:4px 8px;margin-top:8px;font-size:11px;color:var(--brown)}
+.lks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.lk{color:var(--ink);text-decoration:none;font-weight:600;font-size:11px;border-bottom:1px solid var(--line)}
+.lk:hover{color:var(--red);border-color:var(--red)}
+.photo .blank{width:100%;aspect-ratio:2/1;background:repeating-linear-gradient(45deg,#efe6d4 0 10px,#f7f1e4 10px 20px);display:grid;place-items:center;color:var(--mute);font-size:12px;letter-spacing:.3em}
+.empty{text-align:center;color:var(--mute);padding:40px;letter-spacing:.3em}
+/* list view */
+.shelf.list{grid-template-columns:1fr;gap:12px}
+.shelf.list .folder{padding-top:0}
+.shelf.list .folder .tab{position:static;display:none}
+.shelf.list .body{display:grid;grid-template-columns:160px 1fr auto;gap:16px;align-items:center;border-radius:6px;padding:10px 14px}
+.shelf.list .photo{transform:none;padding:4px;width:160px}
+.shelf.list .photo .cap{display:none}
+.shelf.list .folder h2{margin-top:0;font-size:19px}
+.shelf.list .folder p{margin-top:2px}
+.shelf.list .row{border:0;margin:0;padding:0;flex-direction:column;align-items:flex-end;gap:6px}
+.shelf.list .stamp{display:none}
+.shelf.list a.folder:hover,.shelf.list .folder.live:hover{transform:none}
+.shelf.list .folder.live:hover .body{border-color:#c9b38f;background:#fffaf0}
+@media(max-width:620px){.shelf.list .body{grid-template-columns:96px 1fr}.shelf.list .photo{width:96px}.shelf.list .row{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}.shelf.list .stamp{display:none}.tg{margin-left:0}}
 footer{border-top:1.5px solid var(--line);color:var(--mute);font-size:11px;text-align:center;padding:18px;letter-spacing:.2em;background:var(--paper2)}
 @media(max-width:560px){header{padding-top:38px}.shelf{padding:28px 14px;gap:34px}}
 </style>
@@ -59,26 +92,37 @@ footer{border-top:1.5px solid var(--line);color:var(--mute);font-size:11px;text-
   <h1>Archive <span>/</span> <em class="nw">보관함</em></h1>
   <div class="meta mono"><span>OWNER <b>shakeit08</b></span><span>FILES <b id="cnt">0</b></span><span>LAST FILED <b id="last">—</b></span></div>
 </header>
-<div class="drawer"><div class="front tw"><span>DRAWER A — CHARACTER BOTS</span><i></i></div></div>
-<main><div class="shelf" id="list"></div></main>
+<div class="drawer"><div class="front tw"><span>DRAWER A — CHARACTER BOTS</span><i></i></div><div class="tools"><input id="q" type="search" placeholder="이름·태그 검색" aria-label="검색"><div id="tags" class="tags"></div><div class="tg"><button id="sort" class="mono">최신순</button><button id="view" class="mono">목록형</button></div></div></div>
+
+<main><div class="shelf" id="list"></div><p class="empty tw" id="empty" hidden>NO FILES FOUND</p></main>
 <footer class="mono">SHAKEIT08.GITHUB.IO — FILED WITH CARE</footer>
+<script src="bots.js"></script>
 <script>
-/* 봇 추가: 아래 목록에 한 줄씩 추가
-   url: 저장소 이름/   img: 이 저장소에 넣은 썸네일(가로 2:1)   date: 등록일   c: 탭 색   soon:true 면 빈 서류철 */
-const BOTS=[
-  {url:"nextstage/",img:"nextstage.jpg",title:"NEXT STAGE",ko:"넥스트 스테이지",sub:"남자 아이돌 서바이벌 RP · 시즌 1",tag:"IDOL SURVIVAL",date:"2026.10",c:"#cfe0f7",stamp:"ON AIR"},
-  {soon:true,title:"Untitled",ko:"준비 중",sub:"다음 서류를 정리하고 있어요.",tag:"PENDING",c:"#e8d7b4"}
-];
-const L=document.getElementById("list");let n=0,last="";
-BOTS.forEach((b,i)=>{const no=String(i+1).padStart(3,"0");const e=document.createElement(b.soon?"div":"a");e.className="folder"+(b.soon?" sealed":"");if(!b.soon){e.href=b.url;n++;if(b.date&&b.date>last)last=b.date}
- e.style.setProperty("--c",b.c||"#e8d7b4");e.style.setProperty("--r",(i%2?1.6:-1.4)+"deg");
- e.innerHTML=`<div class="tab mono">No.${no} · ${b.tag||""}</div><div class="body">
-  <div class="photo">${b.soon?`<div class="blank tw">SEALED</div>`:`<img src="${b.img}" alt="${b.title}" loading="lazy"><span class="cap tw">FILE ${no}</span>`}</div>
-  ${b.stamp?`<span class="stamp tw">${b.stamp}</span>`:""}
-  <h2>${b.title}</h2><div class="ko">${b.ko||""}</div><p>${b.sub||""}</p>
-  <div class="row mono"><span>${b.date||"— — —"}</span><span class="open">${b.soon?"SEALED":"OPEN FILE →"}</span></div></div>`;
- L.append(e)});
-document.getElementById("cnt").textContent=n;document.getElementById("last").textContent=last||"—";
+const $=s=>document.querySelector(s);let q="",tag="",newest=true,listView=false;
+try{listView=localStorage.getItem("arc_view")==="list"}catch(e){}
+const LBL={page:"소개 페이지",realm:"Realm",arca:"Arca"};
+const items=BOTS.map((b,i)=>({...b,no:String(i+1).padStart(3,"0"),i}));
+const allTags=[...new Set(items.flatMap(b=>b.tags||[]))];
+$("#cnt").textContent=items.filter(b=>!b.soon).length;
+$("#last").textContent=items.map(b=>b.date||"").sort().pop()||"—";
+const T=$("#tags");[["","전체"],...allTags.map(t=>[t,t])].forEach(([v,n])=>{const x=document.createElement("button");x.className="tag"+(v===tag?" on":"");x.textContent=n;x.onclick=()=>{tag=v;T.querySelectorAll(".tag").forEach(y=>y.classList.toggle("on",y===x));render()};T.append(x)});
+$("#q").oninput=e=>{q=e.target.value.trim().toLowerCase();render()};
+$("#sort").onclick=()=>{newest=!newest;$("#sort").textContent=newest?"최신순":"오래된순";render()};
+$("#view").onclick=()=>{listView=!listView;try{localStorage.setItem("arc_view",listView?"list":"grid")}catch(e){}render()};
+function render(){const L=$("#list");L.innerHTML="";L.classList.toggle("list",listView);$("#view").textContent=listView?"카드형":"목록형";
+ let arr=items.filter(b=>(!tag||(b.tags||[]).includes(tag))&&(!q||[b.title,b.ko,b.sub,...(b.tags||[])].join(" ").toLowerCase().includes(q)));
+ if(newest)arr=[...arr].reverse();$("#empty").hidden=arr.length>0;
+ arr.forEach(b=>{const lk=b.links||{};const main=lk.page||lk.realm||lk.arca;const e=document.createElement("div");e.className="folder"+(main?" live":"");
+  e.style.setProperty("--c",b.c||"#e8d7b4");e.style.setProperty("--r",(b.i%2?1.4:-1.2)+"deg");
+  const btns=Object.entries(lk).map(([k,u])=>`<a class="lk mono" href="${u}" target="${k==="page"?"_self":"_blank"}" rel="noopener">${LBL[k]||k} ↗</a>`).join("");
+  e.innerHTML=`<div class="tab mono">No.${b.no} · ${(b.tags||[])[0]||""}</div><div class="body">
+   <div class="photo">${b.thumb?`<img src="thumbs/${b.thumb}" alt="${b.title}" loading="lazy">`:`<div class="blank tw">NO PHOTO</div>`}<span class="cap tw">FILE ${b.no}</span>${b.stamp?`<span class="stamp tw">${b.stamp}</span>`:""}</div>
+   <div class="txt"><h2>${b.title}</h2><div class="ko">${b.ko||""}</div><p>${b.sub||""}</p>
+   <div class="chips">${(b.tags||[]).map(t=>`<span>#${t}</span>`).join("")}</div></div>
+   <div class="row mono"><span>${b.date||"— — —"}</span><span class="lks">${btns}</span></div></div>`;
+  if(main)e.onclick=ev=>{if(ev.target.closest("a"))return;if(lk.page)location.href=lk.page;else window.open(main,"_blank","noopener")};
+  L.append(e)})}
+render();
 </script>
 </body>
 </html>
