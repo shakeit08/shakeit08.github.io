@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXT STAGE · 소개</title>
+<meta name="description" content="남자 아이돌 서바이벌 RP 봇 NEXT STAGE 시즌 1 소개 페이지">
+<meta property="og:title" content="NEXT STAGE · SEASON 1">
+<meta property="og:description" content="당신의 선택이, 그들의 데뷔가 된다 — 남자 아이돌 서바이벌 RP">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,400..900;1,100..125,400..900&family=Noto+Sans+KR:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1468f0;--blue2:#0f45c8;--navy:#13205a;--pink:#ffb8d2;--red:#ff4b5c;--lime:#c9f29b;--sky:#7cc7ff;--bg:#eef1f6;--ink:#13205a;--mute:#5b6694;--line:#c9d4ea;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+.mono{font-family:"Space Mono",monospace;letter-spacing:.14em}
+.disp{font-family:Archivo,sans-serif;font-style:italic;font-weight:900;font-stretch:115%}
+.ck{height:28px;background:conic-gradient(#fff 25%,var(--blue) 0 50%,#fff 0 75%,var(--blue) 0) 0 0/28px 28px}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+
+/* gate */
+#gate{position:fixed;inset:0;z-index:100;background:var(--blue);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:24px;transition:opacity .6s,visibility .6s}
+#gate.off{opacity:0;visibility:hidden}
+#gate::before,#gate::after{content:"";position:absolute;left:0;right:0;height:40px;background:conic-gradient(#fff 25%,var(--blue) 0 50%,#fff 0 75%,var(--blue) 0) 0 0/40px 40px}
+#gate::before{top:0}#gate::after{bottom:0}
+#gate img{width:min(720px,92vw);filter:drop-shadow(0 18px 40px rgba(6,20,80,.45))}
+#gate .btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.gbtn{padding:14px 26px;border:3px solid var(--navy);background:#fff;font-weight:900;font-size:16px;box-shadow:6px 6px 0 var(--navy);transition:transform .15s,box-shadow .15s}
+.gbtn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--navy)}
+.gbtn.pri{background:var(--pink)}
+#gate .hint{color:#dbe7ff;font-size:12px;text-align:center}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;border-bottom:3px solid var(--blue)}
+nav .in{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:0 12px;height:54px}
+nav .logo{font-size:18px;white-space:nowrap;margin-right:8px}
+nav .links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav .links::-webkit-scrollbar{display:none}
+nav .links a{text-decoration:none;font-size:12px;padding:6px 10px;border-radius:20px;white-space:nowrap;color:#dbe7ff}
+nav .links a b{color:var(--pink);font-family:"Space Mono",monospace;margin-right:4px}
+nav .links a:hover,nav .links a.on{background:var(--blue);color:#fff}
+.snd{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.snd button{width:34px;height:34px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-size:15px}
+.snd input{width:70px;accent-color:var(--pink)}
+@media(max-width:620px){.snd input{display:none}nav .logo{display:none}}
+
+/* hero */
+.hero{background:var(--blue)}
+.hero img{width:100%;max-width:1200px;margin:0 auto}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:22px 16px 0}
+.chip{padding:7px 14px;border-radius:30px;border:2px solid var(--navy);font-size:13px;font-weight:800;background:#fff;color:var(--blue2)}
+
+/* window */
+.win{border:3px solid var(--navy);background:#fff;box-shadow:8px 8px 0 var(--blue);margin:34px 0 0}
+.win .bar{display:flex;align-items:center;justify-content:space-between;background:var(--navy);color:#fff;padding:8px 12px;font-family:"Space Mono",monospace;font-size:12px;font-weight:700}
+.win .bar span:last-child{color:var(--pink);letter-spacing:3px;white-space:nowrap}
+.win video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+
+/* section heads */
+section{padding-top:84px}
+.sh{position:relative;margin-bottom:22px}
+.sh .num{display:inline-block;background:var(--pink);border:2px solid var(--blue2);border-radius:50%;padding:2px 12px;font-family:Archivo;font-style:italic;font-weight:900;color:var(--blue2);font-size:18px;transform:rotate(-6deg);margin-left:12px;position:relative;z-index:1}
+.sh .band{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--blue);color:#fff;padding:12px 18px;margin-top:-6px;flex-wrap:wrap}
+.sh .band h2{font-family:Archivo;font-style:italic;font-weight:900;font-stretch:115%;font-size:28px;line-height:1.1}
+.sh .band small{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;color:#dbe7ff}
+.lead{font-weight:700;margin-bottom:18px}
+
+/* stats & roadmap */
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.stat{background:#fff;border:3px solid var(--blue);text-align:center;padding:10px 4px}
+.stat b{display:block;font-family:"Space Mono",monospace;font-size:28px;color:var(--blue2);line-height:1.2}
+.stat span{font-family:"Space Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.12em}
+.stat.final{background:var(--red);border-color:var(--red)}.stat.final b,.stat.final span{color:#fff}
+@media(max-width:620px){.stats{grid-template-columns:repeat(3,1fr)}}
+.road{background:#fff;border:3px solid var(--blue);padding:20px 18px 8px;margin-top:16px}
+.ep{display:grid;grid-template-columns:28px 1fr;gap:12px;position:relative;padding-bottom:16px}
+.ep:not(:last-child)::before{content:"";position:absolute;left:13px;top:28px;bottom:0;width:2px;background:var(--line)}
+.ep.done:not(:last-child)::before{background:var(--blue)}
+.dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center;font-size:13px;font-weight:900;color:#fff}
+.ep.done .dot{background:var(--blue);border-color:var(--blue)}
+.ep.now .dot{border-color:var(--blue);box-shadow:0 0 0 5px rgba(20,104,240,.2)}
+.ep.now .dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue)}
+.ep small{font-family:"Space Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em}
+.ep h4{font-size:15px;font-weight:900;line-height:1.3}
+.ep .now-tag{display:inline-block;margin-left:6px;background:var(--blue);color:#fff;font-size:10px;padding:1px 8px;border-radius:10px;font-family:"Noto Sans KR"}
+.vote{display:inline-block;margin-top:4px;padding:1px 9px;border:1.5px dashed #d9703f;color:#d9703f;font-size:11px;font-weight:800;border-radius:4px}
+.vote.final{border-style:solid;border-color:var(--red);background:var(--red);color:#fff}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.roles{grid-template-columns:1fr}}
+.role{background:#fff;border:3px solid var(--navy);box-shadow:6px 6px 0 var(--c);display:flex;flex-direction:column}
+.role .top{background:var(--c);color:var(--t,#fff);padding:12px 16px;display:flex;justify-content:space-between;align-items:baseline}
+.role .top h3{font-family:Archivo;font-style:italic;font-weight:900;font-size:24px;font-stretch:115%}
+.role .top span{font-family:"Space Mono";font-size:11px;letter-spacing:.15em}
+.role .body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.role .q{font-weight:900;font-size:17px}
+.role p{font-size:14px;color:var(--mute)}
+.role blockquote{margin-top:auto;border-left:3px solid var(--c);padding:6px 10px;font-size:13px;background:#f3f7ff;font-style:italic}
+.orrole{text-align:center;margin-top:16px;font-family:"Space Mono";font-size:12px;color:var(--mute);letter-spacing:.12em}
+
+/* features */
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:760px){.feat{grid-template-columns:repeat(2,1fr)}}
+.ft{background:#fff;border:2px solid var(--blue)}
+.ft h4{background:var(--blue);color:#fff;font-size:14px;padding:7px 10px;font-weight:900}
+.ft h4 b{font-family:"Space Mono";font-size:11px;color:var(--pink);margin-right:6px}
+.ft p{padding:9px 10px 11px;font-size:13px}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:28px}
+@media(max-width:760px){.shots{grid-template-columns:1fr}}
+.shot .lab{display:inline-block;padding:5px 12px;background:var(--c,var(--blue));color:#fff;font-size:13px;font-weight:900;font-style:italic}
+.shot .frame{border:3px solid var(--navy);background:linear-gradient(180deg,#dde8fb,#f3f7ff);box-shadow:8px 8px 0 -3px #fff,8px 8px 0 0 var(--navy);min-height:180px;display:grid;place-items:center;cursor:zoom-in;overflow:hidden}
+.shot .frame img{width:100%}
+.shot .frame .ph{font-family:"Space Mono";font-size:11px;color:var(--mute);padding:30px;text-align:center}
+
+/* emotion viewer */
+.emo{background:#fff;border:3px solid var(--navy);margin-top:34px;box-shadow:8px 8px 0 var(--pink)}
+.emo .bar{background:var(--navy);color:#fff;padding:9px 14px;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:900}
+.emo .bar small{font-family:"Space Mono";font-size:11px;color:var(--pink);letter-spacing:.12em}
+.picker{display:flex;gap:6px;overflow-x:auto;padding:12px 12px 8px;scrollbar-width:thin}
+.pk{flex-shrink:0;width:52px;text-align:center;font-size:10px;font-weight:700;color:var(--mute);opacity:.6;transition:opacity .2s}
+.pk img{width:48px;height:48px;object-fit:cover;object-position:50% 18%;border-radius:50%;border:3px solid transparent;margin:0 auto 2px}
+.pk.on{opacity:1;color:var(--blue2)}.pk.on img{border-color:var(--blue)}
+.emogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;padding:6px 12px 14px}
+.em{background:linear-gradient(180deg,#e7efff,#fff);border:2px solid var(--line);text-align:center;font-size:11px;font-weight:700;padding-bottom:4px;cursor:zoom-in;transition:border-color .15s,transform .15s}
+.em:hover{border-color:var(--blue);transform:translateY(-2px)}
+.em img{aspect-ratio:416/608;object-fit:cover;width:100%}
+.em.x{border-color:var(--pink)}
+
+/* cast */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.fl{padding:6px 13px;border-radius:30px;border:2px solid var(--navy);background:#fff;font-size:12px;font-weight:800}
+.fl.on{background:var(--navy);color:#fff}
+.banner{border:3px solid var(--navy);margin-bottom:14px;overflow:hidden;background:var(--navy)}
+.banner img{width:100%;transition:opacity .3s}
+.banner .cap{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;color:#fff;font-weight:900;flex-wrap:wrap;gap:4px}
+.banner .cap .disp{font-size:20px}
+.banner .cap small{font-size:12px;color:#dbe7ff;font-weight:500}
+.cast{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:760px){.cast{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:420px){.cast{grid-template-columns:repeat(2,1fr)}}
+.cc{background:#fff;border:3px solid var(--navy);text-align:left;position:relative;transition:transform .15s,box-shadow .15s;box-shadow:4px 4px 0 var(--c)}
+.cc:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--c)}
+.cc img{aspect-ratio:3/4;object-fit:cover;width:100%;border-bottom:3px solid var(--navy)}
+.cc .id{position:absolute;top:6px;left:6px;background:var(--navy);color:#fff;font-family:"Space Mono";font-size:10px;padding:1px 6px}
+.cc .nm{padding:6px 8px 8px}
+.cc .nm b{display:block;font-size:15px;line-height:1.3}
+.cc .nm small{font-size:10px;color:var(--mute);font-family:"Space Mono";letter-spacing:.04em}
+.staff{margin-top:26px;border:3px solid var(--navy);background:#fff}
+.staff summary{list-style:none;cursor:pointer;padding:12px 16px;font-weight:900;display:flex;justify-content:space-between;background:var(--navy);color:#fff}
+.staff summary::-webkit-details-marker{display:none}
+.staff summary span:last-child{color:var(--pink);font-family:"Space Mono";font-size:12px}
+.staff[open] summary span:last-child::after{content:" ▲"}.staff:not([open]) summary span:last-child::after{content:" ▼"}
+.sl{display:grid;grid-template-columns:repeat(2,1fr)}
+@media(max-width:620px){.sl{grid-template-columns:1fr}}
+.sl div{padding:10px 16px;border-top:1px solid var(--line);font-size:13px}
+.sl div b{font-family:"Space Mono";color:var(--blue2);font-size:11px;margin-right:6px}
+.sl div strong{font-size:14px}
+.sl div p{color:var(--mute);font-size:12px;margin-top:2px}
+
+/* howto */
+.steps{background:#fff;border:3px solid var(--blue);padding:16px 18px}
+.st{display:flex;gap:12px;align-items:flex-start;padding:7px 0;font-weight:700}
+.st i{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-style:normal;display:grid;place-items:center;font-size:12px;font-weight:900}
+.st:last-child i{background:#fff;color:var(--blue);border:2px solid var(--blue);box-shadow:0 0 0 4px rgba(20,104,240,.22)}
+.note{margin-top:10px;padding:12px 16px;background:#fff2f4;border:2px solid var(--red);font-size:13px}
+.note b{display:inline-block;background:var(--red);color:#fff;font-size:11px;padding:2px 9px;margin-right:8px}
+.ticket{margin:34px auto 0;max-width:560px;display:flex;border:3px solid var(--navy);background:#fff;box-shadow:8px 8px 0 var(--pink)}
+.ticket .l{flex:1;padding:16px 18px;border-right:3px dashed var(--navy)}
+.ticket .l small{font-family:"Space Mono";font-size:11px;color:var(--mute);letter-spacing:.1em;display:block}
+.ticket .l b{font-family:Archivo;font-style:italic;font-weight:900;font-size:26px;color:var(--blue2);font-stretch:115%}
+.ticket a{display:grid;place-items:center;padding:0 22px;background:var(--red);color:#fff;text-decoration:none;font-weight:900;text-align:center;line-height:1.3}
+.ticket a:hover{background:#ff6574}
+footer{margin-top:84px;background:var(--navy);color:#dbe7ff;text-align:center;padding:26px 16px 30px;font-size:12px}
+footer .disp{color:#fff;font-size:20px;display:block;margin-bottom:6px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:90;background:rgba(10,16,48,.72);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.on{display:flex}
+.mbox{background:#fff;border:3px solid var(--navy);box-shadow:10px 10px 0 var(--c,var(--blue));width:min(760px,100%);max-height:92vh;overflow:auto;position:relative}
+.mclose{position:sticky;top:0;float:right;margin:8px;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;z-index:2}
+.mgrid{display:grid;grid-template-columns:240px 1fr;gap:0}
+@media(max-width:620px){.mgrid{grid-template-columns:1fr}.mgrid .ph img{max-height:34vh;width:auto;margin:0 auto}}
+.mgrid .ph{background:var(--c);padding:18px;display:grid;place-items:center}
+.mgrid .ph img{border:3px solid var(--navy);box-shadow:6px 6px 0 var(--navy)}
+.mgrid .info{padding:22px 22px 18px}
+.info .cat{display:inline-block;font-family:"Space Mono";font-size:11px;padding:2px 10px;background:var(--c);color:var(--t,#fff);border:2px solid var(--navy);font-weight:700;letter-spacing:.1em}
+.info h3{font-size:30px;font-weight:900;line-height:1.2;margin-top:10px}
+.info .en{font-family:"Space Mono";font-size:12px;color:var(--mute);letter-spacing:.08em}
+.info .desc{margin:12px 0;font-size:15px}
+.info .tags{display:flex;flex-wrap:wrap;gap:6px}
+.info .tags span{padding:3px 10px;border:2px solid var(--navy);border-radius:20px;font-size:12px;font-weight:800;background:#f3f7ff}
+.minis{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:16px}
+.minis img{aspect-ratio:416/608;object-fit:cover;border:2px solid var(--line);background:#e7efff}
+.mlink{margin-top:12px;font-size:13px;font-weight:800;color:var(--blue2);text-decoration:underline}
+#lb .mbox{width:auto;max-width:min(900px,96vw);background:transparent;border:0;box-shadow:none;text-align:center}
+#lb img{max-height:86vh;width:auto;margin:0 auto;border:3px solid #fff}
+#lb p{color:#fff;font-weight:700;margin-top:8px}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.fade.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="locked">
+
+<div id="gate">
+  <img src="assets/title.png" alt="NEXT STAGE SEASON 1">
+  <div class="btns">
+    <button class="gbtn pri" data-snd="1">♪ 입장하기</button>
+    <button class="gbtn" data-snd="0">소리 없이 입장</button>
+  </div>
+  <div class="hint">입장하면 배경음악이 재생됩니다. 상단에서 언제든 끌 수 있어요.</div>
+</div>
+
+<nav>
+  <div class="in">
+    <span class="logo disp">NEXT STAGE</span>
+    <div class="links">
+      <a href="#season"><b>01</b>시즌</a><a href="#role"><b>02</b>역할</a><a href="#features"><b>03</b>기능</a><a href="#cast"><b>04</b>참가자</a><a href="#start"><b>05</b>시작</a>
+    </div>
+    <div class="snd"><button id="sndBtn" aria-label="배경음악">♪</button><input id="vol" type="range" min="0" max="1" step="0.05" value="0.45" aria-label="음량"></div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img src="assets/title.png" alt="NEXT STAGE SEASON 1 — 당신의 선택이, 그들의 데뷔가 된다">
+</header>
+
+<main class="wrap">
+  <div class="chips"><span class="chip">12 EPISODES</span><span class="chip" style="background:var(--pink);color:var(--navy)">참가자 30인 + 생성 연습생</span><span class="chip" style="background:var(--lime);color:var(--navy)">한국어 · English</span></div>
+
+  <div class="win fade">
+    <div class="bar"><span>NEXT_STAGE_TEASER.mp4</span><span>—&nbsp;○&nbsp;×</span></div>
+    <video id="pv" src="assets/pv.mp4" poster="assets/pv_poster.jpg" controls playsinline preload="metadata"></video>
+  </div>
+
+  <section id="season">
+    <div class="sh fade"><span class="num">01.</span><div class="band"><h2>SEASON</h2><small>12 EPISODES · 7 DEBUT</small></div></div>
+    <p class="lead fade">약 100명이 입소해 12화 동안 경쟁하고, 마지막 생방송에서 일곱 명이 데뷔합니다.</p>
+    <div class="stats fade">
+      <div class="stat"><b>98</b><span>입소</span></div><div class="stat"><b>60</b><span>EP04</span></div><div class="stat"><b>35</b><span>EP06</span></div>
+      <div class="stat"><b>20</b><span>EP08</span></div><div class="stat"><b>12</b><span>EP09</span></div><div class="stat final"><b>07</b><span>DEBUT</span></div>
+    </div>
+    <div class="road fade" id="road"></div>
+  </section>
+
+  <section id="role">
+    <div class="sh fade"><span class="num">02.</span><div class="band"><h2>YOUR ROLE</h2><small>CHOOSE ONE</small></div></div>
+    <div class="roles">
+      <div class="role fade" style="--c:var(--blue)"><div class="top"><h3>CONTESTANT</h3><span>No.31</span></div><div class="body"><div class="q">무대에 설 것인가</div><p>참가자 P31로 입소. 훈련하고 미션을 치르고 순위를 받습니다.</p><blockquote>“……추가 참가자도 있었어?”</blockquote></div></div>
+      <div class="role fade" style="--c:var(--pink);--t:var(--navy)"><div class="top"><h3>PRODUCER</h3><span>STAFF</span></div><div class="body"><div class="q">무대를 만들 것인가</div><p>제작진으로 합류. 참가자를 가르치고 무대를 구성하고 평가합니다.</p><blockquote>“누구부터 보실까요?”</blockquote></div></div>
+      <div class="role fade" style="--c:var(--lime);--t:var(--navy)"><div class="top"><h3>FAN</h3><span>VOTE</span></div><div class="body"><div class="q">무대를 지킬 것인가</div><p>시청자로 참여. 방송을 보고 응원하고 투표합니다.</p><blockquote>아직 첫 투표도 열리지 않았는데, 영업은 이미 시작이었다.</blockquote></div></div>
+    </div>
+    <div class="orrole">OR … 직접 정한 역할로 시작</div>
+  </section>
+
+  <section id="features">
+    <div class="sh fade"><span class="num">03.</span><div class="band"><h2>FEATURES</h2><small>WHAT YOU GET</small></div></div>
+    <div class="feat fade">
+      <div class="ft"><h4><b>01</b>상태창</h4><p>능력치·인기도, 변화는 ▲▼</p></div>
+      <div class="ft"><h4><b>02</b>투표 · 순위 발표</h4><p>득표·탈락 자동 계산, 한 칸씩 공개</p></div>
+      <div class="ft"><h4><b>03</b>참가자 도감</h4><p>30인 증명사진과 프로필</p></div>
+      <div class="ft"><h4><b>04</b>전략 카드 · 주사위</h4><p>카드로 무대 판정, 끄면 스토리 모드</p></div>
+      <div class="ft"><h4><b>05</b>마이너 갤러리</h4><p>방송 반응이 글과 댓글로</p></div>
+      <div class="ft"><h4><b>06</b>감정 이미지</h4><p>30인 표정 494장</p></div>
+      <div class="ft"><h4><b>07</b>본문 언어</h4><p>한국어 / English</p></div>
+      <div class="ft"><h4><b>08</b>보조 모델 분리</h4><p>상태 기록·이미지·갤러리 따로 처리</p></div>
+    </div>
+    <div class="shots">
+      <div class="shot fade" style="--c:var(--red)"><span class="lab">01 · 상태창</span><div class="frame" data-src="assets/shots/status.png"></div></div>
+      <div class="shot fade"><span class="lab">02 · 순위 발표</span><div class="frame" data-src="assets/shots/ranking.png"></div></div>
+      <div class="shot fade" style="--c:var(--navy)"><span class="lab">04 · 전략 카드</span><div class="frame" data-src="assets/shots/cards.png"></div></div>
+      <div class="shot fade" style="--c:#d9703f"><span class="lab">05 · 마이너 갤러리</span><div class="frame" data-src="assets/shots/gallery.png"></div></div>
+    </div>
+    <div class="emo fade" id="emo">
+      <div class="bar"><span>06 · 감정 이미지</span><small id="emoCount">TAP A FACE</small></div>
+      <div class="picker" id="picker"></div>
+      <div class="emogrid" id="emogrid"></div>
+    </div>
+  </section>
+
+  <section id="cast">
+    <div class="sh fade"><span class="num">04.</span><div class="band"><h2>CAST</h2><small>30 CONTESTANTS</small></div></div>
+    <div class="filters" id="filters"></div>
+    <div class="banner fade" id="banner" style="display:none"><img id="bimg" alt=""><div class="cap"><span class="disp" id="bt"></span><small id="bs"></small></div></div>
+    <div class="cast" id="castgrid"></div>
+    <details class="staff fade">
+      <summary><span>제작진 · MC 9인</span><span>펼치기</span></summary>
+      <div class="sl" id="staff"></div>
+    </details>
+  </section>
+
+  <section id="start">
+    <div class="sh fade"><span class="num">05.</span><div class="band"><h2>HOW TO</h2><small>START</small></div></div>
+    <div class="steps fade">
+      <div class="st"><i>1</i>첫 메시지에서 역할·언어·세부 설정 선택</div>
+      <div class="st"><i>2</i>'이 설정으로 시작'을 누르면 입소</div>
+      <div class="st"><i>3</i>상태창·카드·갤러리·감정 이미지는 커스텀 토글에서 조절</div>
+    </div>
+    <div class="note fade"><b>안내</b>보조 모델 기능은 Low Level Access와 보조 모델 설정이 필요합니다.</div>
+    <div class="ticket fade">
+      <div class="l"><small>★ ★ ★ CHAMPIONSHIP · SEASON 1</small><b>본방 사수!</b><small>ADMIT ONE · EP.01 — EP.12</small></div>
+      <a id="dl" href="#" target="_blank" rel="noopener">다운로드<br><small>새 탭</small></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="disp">✦ NEXT STAGE ✦</span>
+  현대 · 음악 · 경쟁 · 연예계 드라마 · 블랙코미디 · 일상 · 선택적 로맨스
+</footer>
+
+<div class="modal" id="cm"><div class="mbox" id="cmb"></div></div>
+<div class="modal" id="lb"><div class="mbox"><img id="lbimg" alt=""><p id="lbcap"></p></div></div>
+<audio id="bgm" src="assets/bgm.mp3" loop preload="auto"></audio>
+
+<script>
+/* ===== 설정: 다운로드 링크를 여기에 넣으세요 ===== */
+const DOWNLOAD_URL = "https://LINK";
+
+const CHARS = [{"id": "P01", "ko": "강태준", "en": "Kang Taejun", "age": 21, "cat": "classic", "desc": "6년 차 올라운더. 데뷔가 무산된 팀의 주장 출신으로, 흐트러짐 없는 무대와 믿음직한 리더십을 가졌다.", "tags": ["올라운더", "리더", "6년 차"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "skeptical", "smile", "surprised", "tired", "wink"]}, {"id": "P02", "ko": "서유건", "en": "Seo Yugeon", "age": 22, "cat": "actor", "desc": "연습 8개월 차 모델 출신. 압도적인 비율과 솔직한 매력, 기본기는 아직 갈 길이 멀다.", "tags": ["모델 출신", "비율", "8개월 차"], "emo": ["bow", "counting", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P03", "ko": "한서우", "en": "Han Seowoo", "age": 24, "cat": "indiv", "desc": "말수 적은 메인보컬 후보. 가는 선과 부드러운 인상, 음악 이야기에선 꼼꼼한 고집이 나온다.", "tags": ["메인보컬", "섬세함", "완벽주의"], "emo": ["bow", "crying", "deadpan", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "singing", "smile", "surprised", "tired", "wink"]}, {"id": "P04", "ko": "윤이준", "en": "Yoon Ijun", "age": 20, "cat": "visual", "desc": "백금발의 댄스 특기생. 시선을 빨아들이는 무대, 그리고 진짜로 날 선 성격.", "tags": ["댄스", "플래티넘", "독설"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "scoff", "smile", "surprised", "tired", "wink"]}, {"id": "P05", "ko": "백연우", "en": "Baek Yeonwoo", "age": 25, "cat": "classic", "desc": "아이돌 그룹 리더 출신. 코어 팬덤을 데리고 돌아온 재도전자, 다정하고 말솜씨 좋은 베테랑.", "tags": ["리더 출신", "재도전", "팬덤"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "reassure", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P06", "ko": "이하온", "en": "Lee Haon", "age": 19, "cat": "indiv", "desc": "은색 핀 하나를 꽂은 검은 곱슬머리 싱어송라이터. 졸린 눈의 편곡자지만, 음악 앞에선 갑자기 단호해진다.", "tags": ["작곡", "편곡", "후드"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "inspired", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P07", "ko": "정시완", "en": "Jung Siwan", "age": 19, "cat": "fresh", "desc": "예능감 넘치는 퍼포머. 분위기를 읽는 감이 빠르고, 남의 당황한 순간도 재밌는 그림으로 만든다.", "tags": ["예능", "리액션", "분량"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "hidden_hurt", "laugh", "nervous", "neutral", "overreact", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P08", "ko": "문태경", "en": "Moon Taegyeong", "age": 26, "cat": "indiv", "desc": "최연장 참가자이자 7년 차 댄스 연습생. 날카로운 옆선, 감춰둔 다정함, 그리고 마지막 기회.", "tags": ["최연장", "댄스", "7년 차"], "emo": ["bow", "crying", "determined", "dry_amused", "flustered", "focused", "frustrated", "irritated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P09", "ko": "차결", "en": "Cha Gyeol", "age": 18, "cat": "fresh", "desc": "연습 1년 차 퍼포먼스 천재. 밝은 매력에 습득도 빠르지만, 생활 관리는 아직 어리다.", "tags": ["천재형", "막내라인", "1년 차"], "emo": ["bow", "crying", "demonstrate", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "pretend_fine", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P10", "ko": "권시온", "en": "Kwon Sion", "age": 21, "cat": "athletic", "desc": "넓은 어깨의 행사형 퍼포머. 관객을 사로잡는 다정함, 애정을 나눠야 할 땐 질투도 숨기지 못한다.", "tags": ["퍼포머", "팬서비스", "다정"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "jealous", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P11", "ko": "남기현", "en": "Nam Gihyeon", "age": 25, "cat": "indiv", "desc": "회사원 출신 밴드 보컬. 성숙한 외모에 풍부한 음색, 팬서비스는 아직 쑥스럽다.", "tags": ["밴드", "직장인 출신", "음색"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "singing", "smile", "surprised", "tired", "wink", "wry"]}, {"id": "P12", "ko": "류지안", "en": "Ryu Jian · Jayden Ryu", "age": 19, "cat": "athletic", "desc": "LA에서 자란 교포 래퍼. 오렌지 곱슬머리, 직설적인 화법, 그리고 확고한 최애가 있는 덕후.", "tags": ["래퍼", "교포", "직진"], "emo": ["bow", "competitive", "crying", "determined", "flustered", "focused", "frustrated", "homesick", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P13", "ko": "최현서", "en": "Choi Hyeonseo", "age": 21, "cat": "classic", "desc": "아역 배우 출신의 반듯한 연습생. 안정적인 보컬과 신중한 협상가 기질.", "tags": ["보컬", "아역 출신", "신중"], "emo": ["bow", "cold_polite", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P14", "ko": "박도겸", "en": "Park Dogyeom", "age": 18, "cat": "classic", "desc": "깔끔하고 에너지 넘치는 댄스 연습생. 팀에선 믿음직하지만, 무리의 분위기에 휩쓸리기 쉽다.", "tags": ["댄스", "에너지", "막내라인"], "emo": ["bow", "crying", "determined", "disappointed", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P15", "ko": "신율", "en": "Shin Yul", "age": 21, "cat": "classic", "desc": "데뷔 직전 라인업에서 밀려났던 연습생. 절제된 보컬, 조용한 야망, 그리고 투명한 결정을 원한다.", "tags": ["보컬", "재도전", "야망"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "resentful", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P16", "ko": "은사율", "en": "Eun Saryul", "age": 20, "cat": "visual", "desc": "와인빛 울프컷의 클래식 테너. 도도한 침착함 뒤로 삐죽 나오는 입술, 춤은 이제 막 시작했다.", "tags": ["테너", "클래식", "도도"], "emo": ["bow", "crying", "determined", "embarrassed", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "singing", "smile", "surprised", "tired", "wink"]}, {"id": "P17", "ko": "진휘연", "en": "Jin Hwiyeon", "age": 20, "cat": "visual", "desc": "라벤더빛 반묶음의 뮤지컬형 보컬. 표현력 넘치고 너그럽지만, 기억에 남는 순간만큼은 자기 것이고 싶다.", "tags": ["뮤지컬", "보컬", "리본"], "emo": ["bow", "crying", "determined", "dramatic", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "offended", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P18", "ko": "권서진", "en": "Kwon Seojin", "age": 20, "cat": "visual", "desc": "은빛 브릿지가 들어간 코발트 단발의 고양이상 댄서. 감각 좋은 스타일리스트, 독창성에는 예민하다.", "tags": ["댄스", "스타일링", "고양이상"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "suspicious", "teasing", "tired", "wink"]}, {"id": "P19", "ko": "도은호", "en": "Do Eunho", "age": 24, "cat": "visual", "desc": "긴 머리의 밴드 보컬. 곁에 있으면 편안하지만, 피하고 싶은 일은 정말로 피한다.", "tags": ["밴드", "보컬", "장발"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "unbothered", "wink"]}, {"id": "P20", "ko": "장건우", "en": "Jang Geonwoo", "age": 23, "cat": "athletic", "desc": "등이 넓은 수영선수 출신. 성실하고 격려를 아끼지 않지만, 자기 체력을 기준으로 삼는다.", "tags": ["수영선수 출신", "체력", "성실"], "emo": ["bow", "cheering", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P21", "ko": "오승빈", "en": "Oh Seungbin", "age": 20, "cat": "athletic", "desc": "아담한 체구의 아크로바틱 댄서. 무서운 얼굴에 큰 웃음소리, 의리 있고 충동적이다.", "tags": ["아크로바틱", "의리", "반전"], "emo": ["bow", "challenge", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P22", "ko": "이현겸", "en": "Lee Hyeongyeom", "age": 22, "cat": "athletic", "desc": "피겨 청소년 국가대표 출신. 우아한 라인의 '얼음 왕자', 공을 나누는 게 서툰 승부사.", "tags": ["피겨 출신", "라인", "승부욕"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "silent_sulk", "smile", "surprised", "tired", "wink"]}, {"id": "P23", "ko": "유하민", "en": "Yoo Hamin", "age": 18, "cat": "fresh", "desc": "밀빛 곱슬머리의 성가대 출신 보컬. 다정한 피플플리저, 스스로 선택하는 법을 배우는 중이다.", "tags": ["성가대", "보컬", "순둥"], "emo": ["anxious", "bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P24", "ko": "안태오", "en": "Ahn Taeo", "age": 18, "cat": "fresh", "desc": "구릿빛 곱슬머리의 숏폼 댄서. 아이디어가 많고 사람을 잘 끌어들이지만, 친구도 콘텐츠가 된다.", "tags": ["숏폼", "댄스", "인싸"], "emo": ["bored", "bow", "crying", "determined", "filming", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P25", "ko": "타치바나 유키", "en": "Tachibana Yuki", "age": 21, "cat": "fresh", "desc": "오사카 지하 아이돌 출신 애니송 커버 가수. 핑크 이너컬러, 덧니 미소, 계산된 귀여움.", "tags": ["지하돌 출신", "애니송", "일본"], "emo": ["bow", "crying", "determined", "fanservice", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "otaku_hype", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P26", "ko": "임현", "en": "Im Hyeon", "age": 24, "cat": "actor", "desc": "긴 얼굴선의 배우상. 차분하고 눈치 빠르지만, 늘 다른 선택지를 열어둔다.", "tags": ["배우상", "차분", "관찰"], "emo": ["bow", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "listening", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P27", "ko": "송율하", "en": "Song Yulha", "age": 20, "cat": "actor", "desc": "토프빛 해파리컷의 미대생 비주얼. 나른하고 상상력 풍부하며, 친한 사이엔 조곤조곤 놀리는 타입.", "tags": ["미대생", "나른", "상상력"], "emo": ["bow", "crying", "determined", "firm_refusal", "flustered", "focused", "frustrated", "laugh", "mischief", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P28", "ko": "전의진", "en": "Jeon Uijin", "age": 25, "cat": "actor", "desc": "넓은 어깨의 성숙한 서비스직 출신 비주얼. 따뜻한 바리톤과 빈틈없는 매너.", "tags": ["바리톤", "매너", "성숙"], "emo": ["bow", "composed", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P29", "ko": "최이헌", "en": "Choi Iheon", "age": 21, "cat": "actor", "desc": "장신의 짧은 머리, 조각 같은 비주얼. 첫인상은 위압적이지만 친해지면 솔직하고 열심이다. 공정함엔 고지식하다.", "tags": ["장신", "조각상", "고지식"], "emo": ["bow", "confused", "crying", "determined", "flustered", "focused", "frustrated", "laugh", "nervous", "neutral", "pun", "relieved", "sad", "smile", "surprised", "tired", "wink"]}, {"id": "P30", "ko": "양찬", "en": "Yang Chan", "age": 23, "cat": "indiv", "desc": "아담하고 개성 있는 보컬 테크니션. 웃기고 도움도 잘 주지만, 외모와 인정 이야기엔 예민하다.", "tags": ["보컬", "테크닉", "개그"], "emo": ["bow", "crying", "determined", "dismissive", "flustered", "focused", "frustrated", "knowing", "laugh", "nervous", "neutral", "relieved", "sad", "smile", "surprised", "tired", "wink"]}];
+const CATS = {
+  classic:{en:"CLASSIC IDOL",ko:"정통 아이돌",c:"#1468f0",t:"#fff",b:"01_classic.jpg"},
+  visual:{en:"VISUAL KEI",ko:"비주얼계",c:"#13205a",t:"#ffb8d2",b:"02_visual.jpg"},
+  athletic:{en:"ATHLETIC",ko:"피지컬",c:"#ff4b5c",t:"#fff",b:"03_athletic.jpg"},
+  fresh:{en:"FRESH & BOYISH",ko:"소년미",c:"#ffb8d2",t:"#13205a",b:"04_fresh.jpg"},
+  actor:{en:"ACTOR & MODEL",ko:"배우·모델",c:"#c9f29b",t:"#13205a",b:"05_actor.jpg"},
+  indiv:{en:"INDIVIDUALIST",ko:"개성파",c:"#7cc7ff",t:"#13205a",b:"06_indiv.jpg"}
+};
+const STAFF=[["M01","강재문","메인 음악 프로듀서","무뚝뚝하고 기술적으로 정확한 프로듀서. 첫인상 판단을 잘 바꾸지 않는다."],["M02","오세린","퍼포먼스 프로듀서","단발의 안무가. 생생하게 가르치고, 눈에 든 참가자에겐 기회를 한 번 더 준다."],["M03","마진혁","랩 프로듀서","래퍼 겸 작사가. 플로우와 딕션엔 가차 없다."],["M04","허승원","아이돌 프로듀서","보이그룹 출신. 대중이 무엇을 기억하는지 날카롭게 안다."],["S01","민정우","메인 PD","웃는 얼굴의 협상가. 촬영과 편집을 쥐고, 이야기가 되는 그림을 좋아한다."],["S02","배수진","메인 작가","세심한 인터뷰어. 한 번 들은 말은 정확히 기억한다."],["S03","임도윤","참가자 관리 매니저","피곤하지만 현실적으로 도와주는 매니저."],["H01","유성환","메인 MC","차분하고 정확한 진행. 순위 발표의 뜸은 누구보다 길다."],["H02","채서령","공동 MC","현역 걸그룹 멤버. 백스테이지 인터뷰를 맡는다."]];
+const EPS=[["EP01","퍼스트 체크","","done"],["EP02","시그널송 재평가","V00 · 중간 순위","done"],["EP03–04","그룹 배틀","V01 · 60명","now"],["EP05–06","포지션 평가","V02 · 35명",""],["EP07–08","콘셉트 평가","V03 · 20명",""],["EP09","프로듀서 미션","V04 · 12명",""],["EP10–11","데뷔 평가","V05 · 데뷔 7명","",1],["EP12","파이널 생방송","",""]];
+const EMO_KO={neutral:"기본",smile:"미소",laugh:"웃음",wink:"윙크",bow:"인사",determined:"결의",focused:"집중",relieved:"안도",surprised:"놀람",flustered:"당황",nervous:"긴장",tired:"지침",frustrated:"답답",sad:"슬픔",crying:"울음",singing:"노래",wry:"씁쓸",unbothered:"무심",teasing:"놀림",suspicious:"의심",skeptical:"갸웃",silent_sulk:"말없는 삐짐",scoff:"코웃음",resentful:"서운",reassure:"달래기",pun:"아재개그",pretend_fine:"괜찮은 척",overreact:"과몰입",otaku_hype:"덕질 흥분",offended:"발끈",mischief:"장난",listening:"경청",knowing:"알겠다는 듯",jealous:"질투",irritated:"짜증",inspired:"영감",homesick:"향수",hidden_hurt:"숨긴 상처",firm_refusal:"단호한 거절",filming:"촬영 중",fanservice:"팬서비스",embarrassed:"민망",dry_amused:"피식",dramatic:"드라마틱",dismissive:"시큰둥",disappointed:"실망",demonstrate:"시범",deadpan:"무표정 개그",counting:"카운트",confused:"혼란",composed:"침착",competitive:"승부욕",cold_polite:"차가운 예의",cheering:"응원",challenge:"도발",bored:"지루",anxious:"불안"};
+const BASE=["neutral","smile","laugh","wink","bow","determined","focused","relieved","surprised","flustered","nervous","tired","frustrated","sad","crying"];
+const $=s=>document.querySelector(s);
+const el=(t,a={},h="")=>{const e=document.createElement(t);for(const k in a){if(k==="style")e.style.cssText=a[k];else e.setAttribute(k,a[k])}e.innerHTML=h;return e};
+const emoSrc=(id,e)=>`assets/emo/${id}_${e}.webp`;
+const order=c=>{const ex=c.emo.filter(e=>!BASE.includes(e));return BASE.filter(e=>c.emo.includes(e)).concat(ex)};
+
+/* download */
+$("#dl").href=DOWNLOAD_URL;
+
+/* bgm */
+const bgm=$("#bgm"),pv=$("#pv"),vol=$("#vol"),sb=$("#sndBtn");let want=false;
+bgm.volume=+vol.value;
+const setBtn=()=>{sb.textContent=bgm.paused?"♪":"❚❚";sb.style.background=bgm.paused?"var(--blue)":"var(--red)"};
+const playB=()=>{bgm.play().then(setBtn).catch(setBtn)};
+document.querySelectorAll("#gate [data-snd]").forEach(b=>b.onclick=()=>{want=b.dataset.snd==="1";$("#gate").classList.add("off");document.body.classList.remove("locked");if(want)playB();setBtn()});
+sb.onclick=()=>{if(bgm.paused){want=true;playB()}else{want=false;bgm.pause();setBtn()}};
+vol.oninput=()=>{bgm.volume=+vol.value};
+pv.addEventListener("play",()=>{if(!bgm.paused){bgm.pause();setBtn()}});
+pv.addEventListener("pause",()=>{if(want&&!pv.ended)playB()});
+pv.addEventListener("ended",()=>{if(want)playB()});
+
+/* roadmap */
+EPS.forEach(([n,t,v,s,f])=>{const d=el("div",{class:"ep "+s});d.innerHTML=`<div class="dot">${s==="done"?"✓":""}</div><div><small>${n}</small>${s==="now"?'<span class="now-tag">지금</span>':""}<h4>${t}</h4>${v?`<span class="vote${f?" final":""}">${v}</span>`:""}</div>`;$("#road").append(d)});
+
+/* shots */
+document.querySelectorAll(".frame").forEach(f=>{const i=new Image();i.alt="";i.onload=()=>{f.innerHTML="";f.append(i);f.onclick=()=>openLB(i.src,f.previousElementSibling.textContent)};i.onerror=()=>{f.innerHTML='<div class="ph">IMAGE COMING SOON</div>';f.style.cursor="default"};i.src=f.dataset.src});
+
+/* lightbox */
+function openLB(src,cap){$("#lbimg").src=src;$("#lbcap").textContent=cap||"";$("#lb").classList.add("on");document.body.classList.add("locked")}
+$("#lb").onclick=()=>{$("#lb").classList.remove("on");if(!$("#cm").classList.contains("on"))document.body.classList.remove("locked")};
+
+/* emotion viewer */
+let curE=null;
+CHARS.forEach(c=>{const b=el("button",{class:"pk","data-id":c.id},`<img src="assets/dex/${c.id}.webp" alt="" loading="lazy">${c.ko}`);b.onclick=()=>showEmo(c.id);$("#picker").append(b)});
+function showEmo(id){const c=CHARS.find(x=>x.id===id);curE=id;document.querySelectorAll(".pk").forEach(p=>p.classList.toggle("on",p.dataset.id===id));
+  const g=$("#emogrid");g.innerHTML="";const list=order(c);$("#emoCount").textContent=`${c.id} ${c.ko} · ${list.length}`;
+  list.forEach(e=>{const d=el("div",{class:"em"+(BASE.includes(e)?"":" x")},`<img src="${emoSrc(id,e)}" alt="" loading="lazy">${EMO_KO[e]||e}`);d.onclick=()=>openLB(emoSrc(id,e),`${c.ko} · ${EMO_KO[e]||e}`);g.append(d)})}
+showEmo("P03");
+
+/* cast */
+let curF="all";
+const F=[["all","전체"]].concat(Object.entries(CATS).map(([k,v])=>[k,v.ko]));
+F.forEach(([k,n])=>{const b=el("button",{class:"fl"+(k==="all"?" on":""),"data-k":k},n);b.onclick=()=>filt(k);$("#filters").append(b)});
+CHARS.forEach(c=>{const C=CATS[c.cat];const b=el("button",{class:"cc","data-cat":c.cat,style:`--c:${C.c}`},`<img src="assets/dex/${c.id}.webp" alt="${c.ko}" loading="lazy"><span class="id">${c.id}</span><div class="nm"><b>${c.ko}</b><small>${C.en}</small></div>`);b.onclick=()=>openC(c.id);$("#castgrid").append(b)});
+function filt(k){curF=k;document.querySelectorAll(".fl").forEach(b=>b.classList.toggle("on",b.dataset.k===k));
+  document.querySelectorAll(".cc").forEach(c=>c.style.display=(k==="all"||c.dataset.cat===k)?"":"none");
+  const bn=$("#banner");if(k==="all"){bn.style.display="none";return}
+  const C=CATS[k];bn.style.display="";bn.style.background=C.c;$("#bimg").src="assets/banner/"+C.b;$("#bt").textContent=C.en;$("#bt").style.color=C.t;$("#bs").textContent=C.ko+" · "+CHARS.filter(x=>x.cat===k).map(x=>x.ko).join(" · ");$("#bs").style.color=C.t}
+function openC(id){const c=CHARS.find(x=>x.id===id),C=CATS[c.cat];const m=$("#cmb");m.style.setProperty("--c",C.c);m.style.setProperty("--t",C.t);
+  const pick=["smile","laugh","determined","flustered"].filter(e=>c.emo.includes(e));
+  m.innerHTML=`<button class="mclose" aria-label="닫기">×</button><div class="mgrid"><div class="ph"><img src="assets/dex/${c.id}.webp" alt="${c.ko}"></div><div class="info"><span class="cat">${c.id} · ${C.en}</span><h3>${c.ko}</h3><div class="en">${c.en.toUpperCase()} · ${c.age}</div><p class="desc">${c.desc}</p><div class="tags">${c.tags.map(t=>`<span>${t}</span>`).join("")}</div><div class="minis">${pick.map(e=>`<img src="${emoSrc(c.id,e)}" alt="${EMO_KO[e]}" title="${EMO_KO[e]}">`).join("")}</div><button class="mlink">표정 ${c.emo.length}장 전체 보기 →</button></div></div>`;
+  m.querySelector(".mclose").onclick=closeC;m.querySelector(".mlink").onclick=()=>{closeC();showEmo(c.id);$("#emo").scrollIntoView({behavior:"smooth",block:"start"})};
+  m.querySelectorAll(".minis img").forEach(i=>i.onclick=()=>openLB(i.src,`${c.ko} · ${i.title}`));
+  $("#cm").classList.add("on");document.body.classList.add("locked")}
+function closeC(){$("#cm").classList.remove("on");document.body.classList.remove("locked")}
+$("#cm").onclick=e=>{if(e.target.id==="cm")closeC()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){if($("#lb").classList.contains("on"))$("#lb").click();else closeC()}});
+
+/* staff */
+STAFF.forEach(([i,n,r,d])=>$("#staff").append(el("div",{},`<b>${i}</b><strong>${n}</strong> — ${r}<p>${d}</p>`)));
+
+/* reveal + nav highlight */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".fade").forEach(f=>io.observe(f));
+const secs=[...document.querySelectorAll("section")];
+addEventListener("scroll",()=>{let cur="";secs.forEach(s=>{if(scrollY+120>=s.offsetTop)cur=s.id});document.querySelectorAll("nav .links a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+cur))},{passive:true});
+</script>
+</body>
+</html>
