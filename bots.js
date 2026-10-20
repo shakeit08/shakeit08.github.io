@@ -30,7 +30,7 @@ const BOTS = [
   },
   {
     title: "Aurel Valençay", ko: "오렐 발랑쉐",
-    sub: "1920년대 파리, 열다섯의 얼굴로 백 년을 산 뱀파이어. 상태창·일기 시스템, 한/영 지원.",
+    sub: "1920년대 파리, 열여덟의 얼굴로 백 년을 산 뱀파이어. 상태창·일기 시스템, 한/영 지원.",
     tags: ["로맨스", "뱀파이어", "시대물", "에셋봇"],
     type: "캐릭터", origin: "1차",
     date: "2025.11", thumb: "aurel.jpg", hero: "aurel/assets/img/w_roof.webp", badge: "NOCTURNE",
@@ -43,5 +43,13 @@ const BOTS = [
     type: "시뮬", origin: "2차",
     date: "2025.12", thumb: "zootopia2.jpg", hero: "zootopia2/assets/hero.webp", badge: "ZPD",
     links: { page: "zootopia2/", realm: "https://realm.risuai.net/character/8cfc8a3b-68ac-4a92-bbe5-3ac29ae885ab" }
+  },
+  {
+    title: "Deck Morrow", ko: "덱 모로우 · 토론토 파인즈 G-31",
+    sub: "실력은 확실한데, 불안 관리 방식이 좀 이상한 주전 골텐더. 징크스가 승리 조건이 된 남자.",
+    tags: ["스포츠", "하키", "로맨스", "에셋봇"],
+    type: "캐릭터", origin: "1차",
+    date: "2026.09", thumb: "deck.jpg", hero: "deck/assets/hero.webp", badge: "G-31",
+    links: { page: "deck/", realm: "https://realm.risuai.net/character/5cd2f1fb-478e-4e10-ad0b-d9d9155fa774" }
   },
 ];
