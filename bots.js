@@ -29,4 +29,11 @@ const BOTS = [
     date: "2025.11", thumb: "aurel.jpg", stamp: "NOCTURNE", c: "#e8d6b3",
     links: { page: "aurel/", realm: "https://realm.risuai.net/character/f674591c-9935-449c-bd16-87c1d0a067b6" }
   },
+  {
+    title: "ZOOTOPIA 2", ko: "주토피아 2 · 투게더? 주게더!",
+    sub: "주토피아 2 팬픽션 시뮬봇. ZPD 폰 상태창, 인터랙티브 맵, 메인 캐스트 감정 에셋 30종.",
+    tags: ["팬픽션", "시뮬", "수사", "에셋봇"],
+    date: "2025.12", thumb: "zootopia2.jpg", stamp: "ZPD", c: "#cdeee9",
+    links: { page: "zootopia2/", realm: "https://realm.risuai.net/character/8cfc8a3b-68ac-4a92-bbe5-3ac29ae885ab" }
+  },
 ];
