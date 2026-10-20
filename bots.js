@@ -52,4 +52,12 @@ const BOTS = [
     date: "2026.09", thumb: "deck.jpg", hero: "deck/assets/hero.webp", badge: "G-31",
     links: { page: "deck/", realm: "https://realm.risuai.net/character/5cd2f1fb-478e-4e10-ad0b-d9d9155fa774" }
   },
+  {
+    title: "Her Highness Is Already Here", ko: "황녀께서는 이미 와 계십니다",
+    sub: "두 명의 황녀, 같은 신원 보증인, 이미 발송된 초대장. 대체 역사 블랙 코미디 시뮬봇.",
+    tags: ["블랙 코미디", "대체 역사", "NPC 5인", "에셋봇"],
+    type: "시뮬", origin: "1차",
+    date: "2026.10", thumb: "her-highness.jpg", hero: "her-highness/assets/banner.webp", badge: "BANQUET",
+    links: { page: "her-highness/", realm: "https://realm.risuai.net/character/e5d206a3-1bb0-4ff4-8a15-26c658cc6354" }
+  },
 ];
