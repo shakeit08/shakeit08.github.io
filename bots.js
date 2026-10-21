@@ -30,6 +30,7 @@ const BOTS = [
   },
   {
     title: "Aurel Valençay", ko: "오렐 발랑쉐",
+    sub: "1920년대 파리, 열여덟의 얼굴로 백 년을 산 뱀파이어. 상태창·일기 시스템, 한/영 지원.",
     tags: ["로맨스", "뱀파이어", "시대물", "에셋봇"],
     type: "캐릭터", origin: "1차",
     date: "2025.11", thumb: "aurel.jpg", hero: "aurel/assets/img/w_roof.webp", badge: "NOCTURNE",
