@@ -64,7 +64,6 @@ nav.solid{background:#0f0f10f2}
 
 /* rows */
 main{position:relative;z-index:3;margin-top:-80px;padding-bottom:40px}
-<<<<<<< HEAD
 .tw{position:relative}
 .arr{position:absolute;top:16px;height:calc(clamp(240px,23vw,340px)*.5625);z-index:5;width:clamp(16px,4vw,56px);display:flex;align-items:center;justify-content:center;font-size:44px;line-height:1;color:#fff;background:#000a;border:0;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}
 .arr.al{left:0}.arr.ar{right:0}
@@ -72,8 +71,6 @@ main{position:relative;z-index:3;margin-top:-80px;padding-bottom:40px}
 .num .arr{height:clamp(240px,23vw,340px)}
 .tw.at-s .arr.al,.tw.at-e .arr.ar{opacity:0!important;pointer-events:none}
 @media(hover:none){.arr{display:none}}
-=======
->>>>>>> fa68f0936e85913ef83a59c1f7a0040176582336
 .row{margin-bottom:38px}
 .row h2{font-size:clamp(17px,1.6vw,21px);font-weight:700;padding:0 clamp(16px,4vw,56px);margin-bottom:10px;display:flex;align-items:baseline;gap:10px}
 .row h2 small{font-size:12px;color:var(--dim);font-weight:500;letter-spacing:.06em}
@@ -209,7 +206,6 @@ const ROWS=[
   ["r-o2","2차 창작 · 팬픽션","FAN FICTION",byDate.filter(b=>b.origin==="2차")],
   ["r-no","만든 순서대로","No.",items,1]
 ];
-<<<<<<< HEAD
 $("#main").innerHTML=ROWS.filter(r=>r[3].length).map(([id,t,s,arr,n])=>`<section class="row${n?" num":""}" id="${id}"><h2>${t}<small>${s}</small></h2><div class="tw"><button class="arr al" aria-label="이전">‹</button><div class="track">${arr.map(b=>card(b,n)).join("")}</div><button class="arr ar" aria-label="다음">›</button></div></section>`).join("");
 /* row arrows (PC) */
 function arrUpd(tr){const w=tr.parentElement;w.classList.toggle("at-s",tr.scrollLeft<8);w.classList.toggle("at-e",tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-8)}
@@ -221,9 +217,6 @@ document.querySelectorAll(".tw").forEach(w=>{const tr=w.querySelector(".track");
   tr.addEventListener("scroll",()=>arrUpd(tr),{passive:true});arrUpd(tr)});
 addEventListener("resize",()=>document.querySelectorAll(".tw .track").forEach(arrUpd));
 
-=======
-$("#main").innerHTML=ROWS.filter(r=>r[3].length).map(([id,t,s,arr,n])=>`<section class="row${n?" num":""}" id="${id}"><h2>${t}<small>${s}</small></h2><div class="track">${arr.map(b=>card(b,n)).join("")}</div></section>`).join("");
->>>>>>> fa68f0936e85913ef83a59c1f7a0040176582336
 
 /* modal */
 function openM(i){const b=items[i];const lk=b.links||{};const o=OG[b.origin];
