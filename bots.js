@@ -30,7 +30,7 @@ const BOTS = [
   },
   {
     title: "Aurel Valençay", ko: "오렐 발랑쉐",
-    sub: "1920년대 파리, 열여덟의 얼굴로 백 년을 산 뱀파이어. 상태창·일기 시스템, 한/영 지원.",
+    sub: "1920년대 파리, 열다섯의 얼굴로 백 년을 산 뱀파이어. 상태창·일기 시스템, 한/영 지원.",
     tags: ["로맨스", "뱀파이어", "시대물", "에셋봇"],
     type: "캐릭터", origin: "1차",
     date: "2025.11", thumb: "aurel.jpg", hero: "aurel/assets/img/w_roof.webp", badge: "NOCTURNE",
@@ -59,5 +59,13 @@ const BOTS = [
     type: "시뮬", origin: "1차",
     date: "2026.10", thumb: "her-highness.jpg", hero: "her-highness/assets/banner.webp", badge: "BANQUET",
     links: { page: "her-highness/", realm: "https://realm.risuai.net/character/e5d206a3-1bb0-4ff4-8a15-26c658cc6354" }
+  },
+  {
+    title: "Bangor After Dark", ko: "뱅고어 애프터 다크",
+    sub: "1987년 메인주 뱅고어. 동네 괴담을 수집하는 중학교 향토사 동아리 '나이트 시프트'. 필드 맵·무전 시스템.",
+    tags: ["라이트 호러", "미스터리", "성장물", "에셋봇"],
+    type: "시뮬", origin: "1차",
+    date: "2026.10", thumb: "bangor.jpg", hero: "bangor/assets/map_halloween.webp", badge: "NIGHT SHIFT",
+    links: { page: "bangor-after-dark/" }
   },
 ];
